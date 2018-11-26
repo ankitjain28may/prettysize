@@ -8,7 +8,7 @@
  *  For the full copyright and license information, please view the LICENSE
  *  file that was distributed with this source code.
  *
- * PHP version 5.5
+ * PHP version 7.1
  *
  * @category PHP
  * @package  Ankitjain28may\Prettysize
@@ -26,19 +26,29 @@ class Pretty
 {
 
     private static $_sizes = [
-      'Bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB'
+      'B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB'
     ];
 
-    public static function pretty($size) : string
+    public static function pretty($size, $nospace = false, $one = false, $places = 1) : string
     {
-
+        if (is_array($nospace)) {
+            $one = (isset($nospace['one'])) ? $nospace['one'] : false;
+            $places = (isset($nospace['places'])) ? $nospace['places'] : 1;
+            $nospace = (isset($nospace['nospace'])) ? $nospace['nospace'] : false;
+        }
         $finalSize = '';
         foreach (Self::$_sizes as $id => $value) {
             $s = pow(1024, $id);
             $fixed = '';
             if ($size >= $s) {
-                $fixed = number_format($size/$s, 2);
-                $fixed = $fixed . ' ' . $value;
+                $fixed = number_format($size/$s, $places);
+                if (!$nospace) {
+                    $fixed = $fixed . ' ';
+                }
+                if ($one) {
+                    $value = substr($value, 0, 1);
+                }
+                $fixed = $fixed . $value;
                 $finalSize =  $fixed;
             }
         }
