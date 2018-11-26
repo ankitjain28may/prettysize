@@ -1,9 +1,10 @@
 # About prettysize
 
-prettysize was created by, and is maintained by [Ankit Jain](https://github.com/ankitjain28may),and is a helper utility to provide pretty printed file sizes.
+prettysize was created by, and is maintained by [Ankit Jain](https://github.com/ankitjain28may), and is a helper utility to provide pretty printed file sizes.
 
 [![Build Status](https://travis-ci.org/ankitjain28may/prettysize.svg?branch=master)](https://travis-ci.org/ankitjain28may/prettysize)
 [![Coverage Status](https://coveralls.io/repos/github/ankitjain28may/prettysize/badge.svg?branch=master)](https://coveralls.io/github/ankitjain28may/prettysize?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/ankitjain28may/prettysize/v/stable)](https://packagist.org/packages/ankitjain28may/prettysize)
 
 ## Installation & Usage
 
